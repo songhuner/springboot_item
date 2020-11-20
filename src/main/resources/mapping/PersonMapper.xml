@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hang.springbootdemon.mapper.PersonMapper">
+    <select id="findPersonById" resultType="com.hang.springbootdemon.entity.Person">
+        select * from person p where p.id=#{personId}
+    </select>
+</mapper>
