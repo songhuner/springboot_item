@@ -16,7 +16,10 @@
     <description>springboot项目技术集成</description>
 
     <properties>
+        <!--springboot支持的maven编译版本,继承spring-boot-starter-parent配置-->
         <java.version>1.8</java.version>
+        <!--  跳过test编译 -->
+        <skipTests>true</skipTests>
     </properties>
 
     <dependencies>
@@ -46,6 +49,20 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- 连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <!--单元测试-->
         <dependency>
@@ -64,6 +81,7 @@
 
     <build>
         <plugins>
+            <!--将Spring Boot应用打包为可执行的jar或war文件，然后以通常的方式运行Spring Boot应用-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

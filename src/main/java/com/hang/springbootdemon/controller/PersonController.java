@@ -14,7 +14,7 @@ public class PersonController {
     @RequestMapping("/getPersonByName")
     public String getPersonById(Long id){
         Person person = personService.getPersonByid(id);
-        return person.getName();
+        return "person信息:"+person.getAge();
     }
 }
 
