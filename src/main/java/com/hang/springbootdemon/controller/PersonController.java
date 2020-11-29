@@ -14,8 +14,7 @@ public class PersonController {
     @RequestMapping("/getPersonByName")
     public String getPersonById(Long id){
         Person person = personService.getPersonByid(id);
-        System.out.println("springboot访问成功");
-        return "hello,spring boot";
+        return person.getName();
     }
 }
 

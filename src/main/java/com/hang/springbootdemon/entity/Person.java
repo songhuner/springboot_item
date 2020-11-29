@@ -2,6 +2,7 @@ package com.hang.springbootdemon.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -9,7 +10,7 @@ import java.math.BigDecimal;
  * @date 2020/8/30
  */
 @Data
-public class Person {
+public class Person implements Serializable {
     private Long id;
     private String name;
     private Integer age;
