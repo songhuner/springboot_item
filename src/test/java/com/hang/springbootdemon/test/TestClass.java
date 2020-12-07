@@ -16,6 +16,13 @@ public class TestClass {
     @Test
     public void fun01(){
         System.out.println("hello,你好");
+        System.exit(0);
 
     }
+
+    @Test
+     public void fun02(){
+         fun01();
+         System.out.println("你好");
+     }
 }
