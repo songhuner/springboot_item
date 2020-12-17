@@ -20,6 +20,7 @@
         <java.version>1.8</java.version>
         <!--  跳过test编译 -->
         <skipTests>true</skipTests>
+        <druid.version>1.2.1</druid.version>
     </properties>
 
     <dependencies>
@@ -50,10 +51,15 @@
             <optional>true</optional>
         </dependency>
         <!-- 连接池 -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.2.1</version>
+            <version>${druid.version}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
         </dependency>
 
         <dependency>

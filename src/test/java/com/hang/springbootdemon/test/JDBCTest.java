@@ -42,7 +42,7 @@ public class JDBCTest {
             preparedStatement = connection.prepareStatement("insert into person values(null,?,?,? )");
             long start = System.currentTimeMillis();
             //总数
-            int sum = 25001;
+            int sum = 100;
             //批次条数
             int batchNum = 1000;
             //ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(4, 100, 5l, TimeUnit.SECONDS, new LinkedBlockingDeque<>(5));
@@ -67,6 +67,7 @@ public class JDBCTest {
             connection.commit();
 
             long end = System.currentTimeMillis();
+            boolean closed = connection.isClosed();
             System.out.println("耗费时间：" + (end - start) + "ms");
             //threadPoolExecutor.shutdown();
         } catch (Exception e) {
@@ -79,8 +80,11 @@ public class JDBCTest {
         } finally {
             //关闭资源
             try {
+
                 if (preparedStatement != null) preparedStatement.close();
                 if (connection != null) connection.close();
+                boolean closed = connection.isClosed();
+                System.out.println(closed);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -127,6 +131,7 @@ public class JDBCTest {
                 int[] ints = preparedStatement.executeBatch();
                 preparedStatement.clearBatch();
             }
+            preparedStatement.closeOnCompletion();
             connection.commit();
 
             long end = System.currentTimeMillis();
