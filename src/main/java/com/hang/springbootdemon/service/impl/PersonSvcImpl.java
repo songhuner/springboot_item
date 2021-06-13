@@ -6,6 +6,7 @@ import com.hang.springbootdemon.service.PersonService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author huangjh
@@ -21,5 +22,12 @@ public class PersonSvcImpl implements PersonService {
         log.info("personId是："+personId);
         log.error("错误日志测试");
         return personMapper.findPersonById(personId);
+    }
+
+    @Transactional
+    @Override
+    public void insertData(Person person) {
+        personMapper.insertData(person);
+        int i=1/0;
     }
 }

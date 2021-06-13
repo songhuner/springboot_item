@@ -9,4 +9,6 @@ public interface PersonService {
      * @return
      */
   Person getPersonByid(Long personId);
+
+    void insertData(Person person);
 }

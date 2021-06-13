@@ -4,4 +4,7 @@
     <select id="findPersonById" resultType="com.hang.springbootdemon.entity.Person">
         select * from person p where p.id=#{personId}
     </select>
+    <insert id="insertData">
+        insert into person values (null,#{person.name},#{person.age},#{person.income})
+    </insert>
 </mapper>

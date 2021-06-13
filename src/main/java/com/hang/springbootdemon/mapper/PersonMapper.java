@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface PersonMapper {
     Person findPersonById(@Param("personId") Long personId);
+
+    void insertData(@Param("person") Person person);
 }
